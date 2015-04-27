@@ -1,2 +1,2 @@
-lib_LIBRARIES = libhello.a
-libhello_a_SOURCES = hello.c
+libhello_la_SOURCES = hello.c
+lib_LTLIBRARIES = libhello.la
