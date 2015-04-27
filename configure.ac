@@ -1,7 +1,7 @@
 
 AC_PREREQ(2.57)
 
-AC_INIT([libhello], [1.0], [lpabon@redhat.com])
+AC_INIT([hello], [1.0], [lpabon@redhat.com])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 AC_GNU_SOURCE
 m4_ifdef([AM_PROG_AR], [AM_PROG_AR])
@@ -25,6 +25,14 @@ AC_PROG_LIBTOOL
 AC_SUBST(LIBTOOL_DEPS)
 # Check whether some low-level functions/files are available
 AC_HEADER_STDC
+
+# If pkg-config
+AC_CHECK_PROG(PKG_CONFIG, pkg-config, yes)
+AM_CONDITIONAL([HAVE_PKG_CONFIG], [test "x$PKG_CONFIG" != "x"])
+AS_IF([test "x$PKG_CONFIG" != "x"], [
+    AC_CONFIG_FILES([hello.pc])
+])
+
 AC_CONFIG_FILES([Makefile
                  src/Makefile])
 AC_OUTPUT
