@@ -14,7 +14,6 @@ ltmain.sh
 missing
 src/.deps/
 src/.libs/
-Makefile*
 src/config.h
 src/config.h.in
 *.o
